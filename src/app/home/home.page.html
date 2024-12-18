@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      Image Gallery
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <!-- <img src="./assets/icon/solar--logout-bold-duotone.svg" alt=""> -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24"><path fill="#631a1a" d="M12 20a8 8 0 1 1 0-16z" opacity="0.5"/><path fill="#631a1a" fill-rule="evenodd" d="M16.47 8.47a.75.75 0 0 0 0 1.06l1.72 1.72H10a.75.75 0 0 0 0 1.5h8.19l-1.72 1.72a.75.75 0 1 0 1.06 1.06l3-3a.75.75 0 0 0 0-1.06l-3-3a.75.75 0 0 0-1.06 0" clip-rule="evenodd"/></svg>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <div class="row">
+      <div class="col-6 col-md-4 col-lg-3" *ngFor="let image of images">
+        <ion-card (click)="openModal(image)" class="cursor-pointer">
+          <img [src]="image.download_url" alt="Image" class="image" />
+        </ion-card>
+      </div>
+    </div>
+  </div>
+
+  
+  
+
+</ion-content>
+
+<div class="modal fade modal-lg pt-3" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalLabel">Image Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" style="margin: auto;">
+        <img [src]="selectedImage?.download_url" class="img-fluid" alt="Image description">
+        <p>{{ selectedImage?.author }}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

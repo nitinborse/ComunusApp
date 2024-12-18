@@ -1,0 +1,35 @@
+.login-bg {
+    background: linear-gradient(135deg, #4e73df, #1cc88a); 
+    height: 100%;
+  }
+  
+  .login-card {
+    margin-top: 100px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-control {
+    border-radius: 8px;
+    padding: 15px;
+  }
+  
+  .is-invalid {
+    border-color: #dc3545 !important;
+  }
+  
+  button {
+    border-radius: 8px;
+    padding: 12px;
+    background-color: #28a745; 
+    color: white;
+    font-weight: bold;
+  }
+  
+  button:disabled {
+    background-color: #a6d6a8; 
+  }
+  
+  

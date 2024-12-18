@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="login-bg">
+  <div class="card shadow-lg login-card">
+    <div class="container">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form-signin">
+        <div class="mb-3">
+          <label for="username" class="form-label text-dark">Username</label>
+          <input
+            type="text"
+            id="username"
+            class="form-control"
+            formControlName="username"
+            placeholder="Enter Username"
+            [ngClass]="{'is-invalid': loginForm.get('username')?.invalid && loginForm.get('username')?.touched}"
+          />
+          <div *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched" class="text-danger">
+            <small *ngIf="loginForm.get('username')?.hasError('required')">Username is required.</small>
+            <small *ngIf="loginForm.get('username')?.hasError('minlength')">Username must be at least 4 characters long.</small>
+          </div>
+        </div>
+        
+        <div class="mb-3">
+          <label for="password" class="form-label text-dark">Password</label>
+          <input
+            type="password"
+            id="password"
+            class="form-control"
+            formControlName="password"
+            placeholder="Enter Password"
+            [ngClass]="{'is-invalid': loginForm.get('password')?.invalid && loginForm.get('password')?.touched}"
+          />
+          <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="text-danger">
+            <small *ngIf="loginForm.get('password')?.hasError('required')">Password is required.</small>
+            <small *ngIf="loginForm.get('password')?.hasError('minlength')">Password must be at least 6 characters long.</small>
+          </div>
+        </div>
+        
+        <button type="submit" class="btn btn-success w-100" [disabled]="loginForm.invalid">
+          Login
+        </button>
+      </form>
+    </div>
+  </div>
+</ion-content>
